@@ -32,4 +32,4 @@ echo "NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY:0:20}..."
 
 echo ""
 echo "=== Starting Build ==="
-npm run build
+pnpm run build

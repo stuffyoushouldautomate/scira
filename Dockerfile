@@ -15,7 +15,7 @@ WORKDIR /app
 # Copy package files and install dependencies using pnpm
 # pnpm is used for faster and more efficient package management
 COPY package.json pnpm-lock.yaml* ./
-RUN corepack enable pnpm && pnpm i;
+RUN corepack enable pnpm && pnpm install --frozen-lockfile
 
 # Stage 2: Building the application
 # This stage builds the Next.js application
