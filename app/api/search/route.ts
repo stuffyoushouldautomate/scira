@@ -50,9 +50,7 @@ import {
   findPlaceOnMapTool,
   nearbyPlacesSearchTool,
   flightTrackerTool,
-  coinDataTool,
-  coinDataByContractTool,
-  coinOhlcTool,
+
   datetimeTool,
   greetingTool,
   mcpSearchTool,
@@ -400,9 +398,7 @@ export async function POST(req: Request) {
           // Stock & Financial Tools
           stock_chart: stockChartTool,
           currency_converter: currencyConverterTool,
-          coin_data: coinDataTool,
-          coin_data_by_contract: coinDataByContractTool,
-          coin_ohlc: coinOhlcTool,
+
 
           // Search & Content Tools
           x_search: xSearchTool,

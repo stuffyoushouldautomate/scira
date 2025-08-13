@@ -9,11 +9,17 @@
    - Select `stuffyoushouldautomate/bv3-825-brain-main-final-this-one`
    - Railway will automatically detect the Dockerfile and build
 
-2. **Set Environment Variables**:
+2. **No Additional Services Needed**:
+   - You already have PostgreSQL on Railway (`mainline.proxy.rlwy.net`)
+   - You already have Upstash Redis configured
+   - Just deploy your app directly!
+
+3. **Set Environment Variables**:
    - In Railway dashboard, go to your project → Variables
    - Add all required environment variables from your `.env` file
    - **Important**: Set `NEXT_PUBLIC_APP_URL=https://bv2-production.up.railway.app`
    - Set `NODE_ENV=production`
+   - **Note**: `DATABASE_URL` and `REDIS_URL` are already configured in your environment
 
 ### Option 2: Deploy via Railway CLI
 1. **Install Railway CLI**:
@@ -30,6 +36,18 @@
    ```bash
    railway up
    ```
+
+## Railway Services Required
+
+### 1. Your App Service (Main Service)
+- **Purpose**: Main Next.js application
+- **Setup**: Automatically created when you connect GitHub repo
+- **Build**: Uses your Dockerfile for containerized deployment
+
+### 2. Existing Services (Already Configured)
+- **PostgreSQL**: Already hosted on Railway infrastructure (`mainline.proxy.rlwy.net`)
+- **Redis**: Already using Upstash Redis (`amusing-bonefish-49567.upstash.io`)
+- **No additional services needed** - just deploy your app!
 
 ## Environment Variables for Production
 

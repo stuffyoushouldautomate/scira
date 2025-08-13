@@ -2,9 +2,7 @@ import { z } from 'zod';
 import type {
   academicSearchTool,
   codeInterpreterTool,
-  coinDataByContractTool,
-  coinDataTool,
-  coinOhlcTool,
+
   currencyConverterTool,
   redditSearchTool,
   retrieveTool,
@@ -86,8 +84,7 @@ export type MessageMetadata = z.infer<typeof messageMetadataSchema>;
 type weatherTool = InferUITool<typeof weatherTool>;
 type academicSearchTool = InferUITool<typeof academicSearchTool>;
 type codeInterpreterTool = InferUITool<typeof codeInterpreterTool>;
-type coinDataTool = InferUITool<typeof coinDataTool>;
-type coinOhlcTool = InferUITool<typeof coinOhlcTool>;
+
 type currencyConverterTool = InferUITool<typeof currencyConverterTool>;
 type redditSearchTool = InferUITool<typeof redditSearchTool>;
 type retrieveTool = InferUITool<typeof retrieveTool>;
@@ -112,9 +109,8 @@ type mcpSearchTool = InferUITool<typeof mcpSearchTool>;
 export type ChatTools = {
   stock_chart: stockChartTool;
   currency_converter: currencyConverterTool;
-  coin_data: coinDataTool;
-  coin_data_by_contract: coinDataByContractTool;
-  coin_ohlc: coinOhlcTool;
+
+  
 
   // Search & Content Tools
   x_search: xSearchTool;
