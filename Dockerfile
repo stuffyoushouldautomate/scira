@@ -23,13 +23,12 @@ FROM base AS builder
 WORKDIR /app
 # Copy node_modules from deps stage
 COPY --from=deps /app/node_modules ./node_modules
-# Copy all source files (including build-debug.sh)
+# Copy all source files
 COPY . .
 # Copy environment variables for build configuration (optional for Railway)
 COPY .env* ./
-# Build the Next.js application with debug output
-RUN chmod +x /app/build-debug.sh
-RUN /app/build-debug.sh
+# Build the Next.js application directly
+RUN corepack enable pnpm && pnpm run build
 
 # Stage 3: Production runtime
 # Final stage that runs the application
