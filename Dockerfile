@@ -23,12 +23,11 @@ FROM base AS builder
 WORKDIR /app
 # Copy node_modules from deps stage
 COPY --from=deps /app/node_modules ./node_modules
-# Copy all source files
+# Copy all source files (including build-debug.sh)
 COPY . .
 # Copy environment variables for build configuration (optional for Railway)
 COPY .env* ./
 # Build the Next.js application with debug output
-COPY build-debug.sh /app/
 RUN chmod +x /app/build-debug.sh
 RUN /app/build-debug.sh
 
