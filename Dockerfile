@@ -27,8 +27,10 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # Copy environment variables for build configuration (optional for Railway)
 COPY .env* ./
-# Build the Next.js application
-RUN npm run build
+# Build the Next.js application with debug output
+COPY build-debug.sh /app/
+RUN chmod +x /app/build-debug.sh
+RUN /app/build-debug.sh
 
 # Stage 3: Production runtime
 # Final stage that runs the application
