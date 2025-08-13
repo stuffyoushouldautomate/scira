@@ -4,8 +4,8 @@ import { z } from 'zod';
 
 export const clientEnv = createEnv({
   client: {
-    NEXT_PUBLIC_POSTHOG_KEY: z.string().min(1),
-    NEXT_PUBLIC_POSTHOG_HOST: z.string().min(1).url(),
+    NEXT_PUBLIC_POSTHOG_KEY: z.string().optional().default(''),
+    NEXT_PUBLIC_POSTHOG_HOST: z.string().optional().default(''),
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z.string().min(1),
   },
   runtimeEnv: {
