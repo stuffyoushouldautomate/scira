@@ -102,7 +102,7 @@ type memoryManagerTool = InferUITool<typeof memoryManagerTool>;
 type movieTvSearchTool = InferUITool<typeof movieTvSearchTool>;
 type trendingTvTool = InferUITool<typeof trendingTvTool>;
 type youtubeSearchTool = InferUITool<typeof youtubeSearchTool>;
-type coinDataByContractTool = InferUITool<typeof coinDataByContractTool>;
+
 type datetimeTool = InferUITool<typeof datetimeTool>;
 type mcpSearchTool = InferUITool<typeof mcpSearchTool>;
 

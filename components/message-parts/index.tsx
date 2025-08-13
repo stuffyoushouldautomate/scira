@@ -1645,35 +1645,7 @@ const ToolPartRenderer = memo(
         }
         break;
 
-      case 'coin_data':
-        switch (part.state) {
-          case 'input-streaming':
-            return <div className="text-sm text-neutral-500">Preparing coin data...</div>;
-          case 'input-available':
-            return <SearchLoadingState icon={DollarSign} text="Fetching comprehensive coin data..." color="blue" />;
-          case 'output-available':
-            return (
-              <Suspense fallback={<ComponentLoader />}>
-                <CryptoCoinsData result={part.output} coinId={part.input.coinId} />
-              </Suspense>
-            );
-        }
-        break;
 
-      case 'coin_data_by_contract':
-        switch (part.state) {
-          case 'input-streaming':
-            return <div className="text-sm text-neutral-500">Preparing token data...</div>;
-          case 'input-available':
-            return <SearchLoadingState icon={DollarSign} text="Fetching token data by contract..." color="violet" />;
-          case 'output-available':
-            return (
-              <Suspense fallback={<ComponentLoader />}>
-                <CryptoCoinsData result={part.output} contractAddress={part.input.contractAddress} />
-              </Suspense>
-            );
-        }
-        break;
 
       case 'onchain_token_price':
         switch (part.state) {

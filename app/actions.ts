@@ -211,7 +211,7 @@ const groupTools = {
   youtube: ['youtube_search', 'datetime'] as const,
   reddit: ['reddit_search', 'datetime'] as const,
   stocks: ['stock_chart', 'currency_converter', 'datetime'] as const,
-  crypto: ['coin_data', 'coin_ohlc', 'coin_data_by_contract', 'datetime'] as const,
+      crypto: ['datetime'] as const,
   chat: [] as const,
   extreme: ['extreme_search'] as const,
   x: ['x_search'] as const,
@@ -922,29 +922,15 @@ const groupInstructions = {
   - Example: ETH is a coin, USDT is a token with contract 0xdac17f9583...
 
   ### Tool Selection (3 Core APIs):
-  - **Major coins (BTC, ETH, SOL)**: Use 'coin_data' for metadata + 'coin_ohlc' for charts
-  - **Tokens by contract**: Use 'coin_data_by_contract' to get coin ID, then 'coin_ohlc' for charts
+  
   - **Charts**: Always use 'coin_ohlc' (ALWAYS candlestick format)
 
   ### Workflow:
-  1. **For coins by ID**: Use 'coin_data' (metadata) + 'coin_ohlc' (charts)
-  2. **For tokens by contract**: Use 'coin_data_by_contract' (gets coin ID) → then use 'coin_ohlc' with returned coin ID
+  
   3. **Contract API returns coin ID** - this can be used with other endpoints
 
   ### Tool Guidelines:
-  #### coin_data (Coin Data by ID):
-  - For Bitcoin, Ethereum, Solana, etc.
-  - Returns comprehensive metadata and market data
 
-  #### coin_ohlc (OHLC Charts + Comprehensive Data):
-  - **ALWAYS displays as candlestick format**
-  - **Includes comprehensive coin data with charts**
-  - For any coin ID (from coin_data or coin_data_by_contract)
-  - Shows both chart and all coin metadata in one response
-
-  #### coin_data_by_contract (Token Data by Contract):
-  - **Returns coin ID which can be used with coin_ohlc**
-  - For ERC-20, BEP-20, SPL tokens
 
   ### Response Format:
   - Minimal, data-focused presentation
