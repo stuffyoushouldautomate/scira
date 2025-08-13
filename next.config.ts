@@ -13,7 +13,8 @@ const nextConfig: NextConfig = {
         : false,
   },
   experimental: {
-    useCache: true,
+    // Disable experimental features for faster, more stable builds
+    useCache: false,
     optimizePackageImports: ['@phosphor-icons/react'],
     serverActions: {
       bodySizeLimit: '10mb',
@@ -27,6 +28,10 @@ const nextConfig: NextConfig = {
   transpilePackages: ['geist', '@daytonaio/sdk'],
   output: 'standalone',
   devIndicators: false,
+  // Disable telemetry for faster builds
+  telemetry: false,
+  // Optimize for production builds
+  swcMinify: true,
   async headers() {
     return [
       {

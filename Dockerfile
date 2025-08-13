@@ -106,7 +106,12 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # Copy environment variables for build configuration (optional for Railway)
 COPY .env* ./
-# Build the Next.js application directly
+
+# Set build optimization flags
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+
+# Build the Next.js application with optimizations
 RUN corepack enable pnpm && pnpm run build
 
 # Stage 3: Production runtime
@@ -117,6 +122,7 @@ WORKDIR /app
 
 # Set production environment
 ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # Create a non-root user for security
 RUN addgroup -g 1001 -S nodejs
