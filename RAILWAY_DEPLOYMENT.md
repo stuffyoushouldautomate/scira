@@ -1,4 +1,4 @@
-# Railway Deployment Guide
+# Railway Deployment Guide for Bulldozer Brain
 
 ## Quick Deploy Options
 
@@ -6,7 +6,7 @@
 1. **Connect your GitHub repo** to Railway:
    - Go to [Railway Dashboard](https://railway.app/dashboard)
    - Click "New Project" → "Deploy from GitHub repo"
-   - Select `stuffyoushouldautomate/bv3-825-brain-main-final-this-one`
+   - Select `stuffyoushouldautomate/bulldozer-brain`
    - Railway will automatically detect the Dockerfile and build
 
 2. **No Additional Services Needed**:
@@ -17,7 +17,7 @@
 3. **Set Environment Variables**:
    - In Railway dashboard, go to your project → Variables
    - Add all required environment variables from your `.env` file
-   - **Important**: Set `NEXT_PUBLIC_APP_URL=https://bv2-production.up.railway.app`
+   - **Important**: Set `NEXT_PUBLIC_APP_URL=https://bulldozer-brain-production.up.railway.app`
    - Set `NODE_ENV=production`
    - **Note**: `DATABASE_URL` and `REDIS_URL` are already configured in your environment
 
@@ -40,7 +40,7 @@
 ## Railway Services Required
 
 ### 1. Your App Service (Main Service)
-- **Purpose**: Main Next.js application
+- **Purpose**: Main Next.js application for Bulldozer Brain
 - **Setup**: Automatically created when you connect GitHub repo
 - **Build**: Uses your Dockerfile for containerized deployment
 
@@ -76,7 +76,7 @@ TWITTER_CLIENT_ID=your_twitter_client_id
 TWITTER_CLIENT_SECRET=your_twitter_client_secret
 
 # Production URLs
-NEXT_PUBLIC_APP_URL=https://bv2-production.up.railway.app
+NEXT_PUBLIC_APP_URL=https://bulldozer-brain-production.up.railway.app
 NODE_ENV=production
 RAILWAY_ENVIRONMENT=production
 ```
@@ -110,7 +110,7 @@ GOOGLE_MAPS_API_KEY=your_google_maps_key
 
 ### Production (Railway)
 - Uses Railway environment variables
-- `NEXT_PUBLIC_APP_URL=https://bv2-production.up.railway.app`
+- `NEXT_PUBLIC_APP_URL=https://bulldozer-brain-production.up.railway.app`
 - `RAILWAY_ENVIRONMENT=production`
 - `NODE_ENV=production`
 
@@ -119,7 +119,7 @@ GOOGLE_MAPS_API_KEY=your_google_maps_key
 1. **Railway automatically**:
    - Detects the `Dockerfile`
    - Builds the Docker image
-   - Deploys to `bv2-production.up.railway.app`
+   - Deploys to `bulldozer-brain-production.up.railway.app`
 
 2. **Environment handling**:
    - Railway injects environment variables during build
@@ -129,23 +129,20 @@ GOOGLE_MAPS_API_KEY=your_google_maps_key
 ## Monitoring & Updates
 
 - **Auto-deploy**: Every push to main branch triggers deployment
-- **Manual deploy**: Use Railway dashboard or `railway up` command
-- **Logs**: View in Railway dashboard → Deployments → Logs
-- **Environment variables**: Manage in Railway dashboard → Variables
+- **Build logs**: Available in Railway dashboard
+- **Environment variables**: Managed through Railway dashboard
+- **Scaling**: Automatic scaling based on traffic
 
-## Troubleshooting
+## About Bulldozer Brain
 
-### Build Failures
-- Check all required environment variables are set in Railway
-- Verify API keys are valid
-- Check Railway logs for specific error messages
+Bulldozer Brain is a specialized AI-powered research tool designed specifically for **labor union organizers** in **New Jersey** and **New York**. It helps organizers research companies, analyze labor practices, track violations, and gain detailed insights to support their organizing efforts.
 
-### Runtime Issues
-- Ensure `DATABASE_URL` points to production database
-- Verify `REDIS_URL` is accessible from Railway
-- Check authentication secrets are properly configured
+The tool provides:
+- **Company research** and analysis
+- **Labor violation tracking**
+- **Wage and benefit analysis**
+- **Regulatory compliance research**
+- **Executive and ownership research**
+- **Industry analysis** for construction, manufacturing, and service sectors
 
-### Domain Issues
-- Railway automatically assigns `*.up.railway.app` domain
-- Custom domains can be configured in Railway dashboard
-- SSL certificates are automatically managed by Railway
+Perfect for union organizers who need to research companies, track labor practices, and gather evidence for organizing campaigns and negotiations.

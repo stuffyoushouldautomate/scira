@@ -53,11 +53,6 @@ export const scira = customProvider({
     'scira-haiku': anthropic('claude-3-5-haiku-20241022'),
     'scira-mistral': mistral('mistral-small-latest'),
     'scira-mistral-medium': mistral('mistral-medium-2508'),
-    'scira-google-lite': google('gemini-2.5-flash-lite'),
-    'scira-google': google('gemini-2.5-flash'),
-    'scira-google-pro': google('gemini-2.5-pro'),
-    'scira-anthropic': anthropic('claude-sonnet-4-20250514'),
-    'scira-llama-4': groq('meta-llama/llama-4-maverick-17b-128e-instruct'),
   },
 });
 
@@ -74,9 +69,11 @@ interface Model {
   requiresAuth: boolean;
   freeUnlimited: boolean;
   maxOutputTokens: number;
+  requiredApiKey?: string; // Add this field to track which API key is needed
 }
 
-export const models: Model[] = [
+// Define all possible models with their required API keys
+const allModels: Model[] = [
   // Free Unlimited Models (xAI)
   {
     value: 'scira-default',
@@ -91,6 +88,7 @@ export const models: Model[] = [
     requiresAuth: false,
     freeUnlimited: false,
     maxOutputTokens: 16000,
+    requiredApiKey: 'XAI_API_KEY',
   },
   {
     value: 'scira-grok-3',
@@ -101,10 +99,11 @@ export const models: Model[] = [
     experimental: false,
     category: 'Pro',
     pdf: false,
-    pro: true,
+    pro: false,
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 16000,
+    requiredApiKey: 'XAI_API_KEY',
   },
   {
     value: 'scira-grok-4',
@@ -115,10 +114,11 @@ export const models: Model[] = [
     experimental: false,
     category: 'Pro',
     pdf: false,
-    pro: true,
+    pro: false,
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 16000,
+    requiredApiKey: 'XAI_API_KEY',
   },
 
   // Mini Models (Free/Paid)
@@ -135,11 +135,12 @@ export const models: Model[] = [
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 128000,
+    requiredApiKey: 'MISTRAL_API_KEY',
   },
   {
     value: 'scira-5-nano',
-    label: 'GPT 5 Nano',
-    description: "OpenAI's latest flagship nano LLM",
+    label: 'Bulldozer Nano',
+    description: "OpenAI's latest flagship nano LLM - Perfect for quick research",
     vision: true,
     reasoning: false,
     experimental: false,
@@ -149,11 +150,12 @@ export const models: Model[] = [
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 128000,
+    requiredApiKey: 'OPENAI_API_KEY',
   },
   {
     value: 'scira-5-mini',
-    label: 'GPT 5 Mini',
-    description: "OpenAI's latest flagship mini LLM",
+    label: 'Bulldozer Mini',
+    description: "OpenAI's latest flagship mini LLM - Great for detailed analysis",
     vision: true,
     reasoning: true,
     experimental: false,
@@ -163,176 +165,52 @@ export const models: Model[] = [
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 128000,
+    requiredApiKey: 'OPENAI_API_KEY',
+  },
+  {
+    value: 'scira-5',
+    label: 'Bulldozer Pro',
+    description: "OpenAI's latest flagship LLM - Expert-level research and insights",
+    vision: true,
+    reasoning: true,
+    experimental: false,
+    category: 'Pro',
+    pdf: true,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 128000,
+    requiredApiKey: 'OPENAI_API_KEY',
+  },
+  {
+    value: 'scira-5-high',
+    label: 'Bulldozer Max',
+    description: "OpenAI's latest flagship high LLM - Maximum power for complex research",
+    vision: true,
+    reasoning: true,
+    experimental: false,
+    category: 'Pro',
+    pdf: true,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 128000,
+    requiredApiKey: 'OPENAI_API_KEY',
   },
   {
     value: 'scira-qwen-32b',
     label: 'Qwen 3 32B',
-    description: "Alibaba's advanced reasoning LLM",
-    vision: false,
-    reasoning: true,
-    experimental: false,
-    category: 'Mini',
-    pdf: false,
-    pro: false,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 40960,
-  },
-  {
-    value: 'scira-qwen-coder',
-    label: 'Qwen 3 Coder',
-    description: "Alibaba's advanced coding LLM",
-    vision: false,
-    reasoning: true,
-    experimental: false,
-    category: 'Pro',
-    pdf: false,
-    pro: true,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 130000,
-  },
-  {
-    value: 'scira-glm-air',
-    label: 'GLM 4.5 Air',
-    description: "Zhipu AI's efficient base LLM",
-    vision: false,
-    reasoning: true,
-    experimental: false,
-    category: 'Mini',
-    pdf: false,
-    pro: false,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 130000,
-  },
-  {
-    value: 'scira-deepseek-v3',
-    label: 'DeepSeek V3 0324',
-    description: "DeepSeek's advanced base LLM",
+    description: "Qwen's efficient 32B model",
     vision: false,
     reasoning: false,
     experimental: false,
     category: 'Mini',
     pdf: false,
     pro: false,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 16000,
-  },
-  {
-    value: 'scira-google-lite',
-    label: 'Gemini 2.5 Flash Lite',
-    description: "Google's advanced smallest LLM",
-    vision: true,
-    reasoning: false,
-    experimental: false,
-    category: 'Mini',
-    pdf: true,
-    pro: false,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 10000,
-  },
-
-  // Pro Models
-  {
-    value: 'scira-5',
-    label: 'GPT 5',
-    description: "OpenAI's latest flagship LLM",
-    vision: true,
-    reasoning: true,
-    experimental: false,
-    category: 'Pro',
-    pdf: true,
-    pro: true,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 128000,
-  },
-  {
-    value: 'scira-5-high',
-    label: 'GPT 5 (Max)',
-    description: "OpenAI's latest flagship reasoning LLM",
-    vision: true,
-    reasoning: true,
-    experimental: false,
-    category: 'Pro',
-    pdf: true,
-    pro: true,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 128000,
-  },
-  {
-    value: 'scira-kimi-k2',
-    label: 'Kimi K2',
-    description: "MoonShot AI's advanced base LLM",
-    vision: false,
-    reasoning: false,
-    experimental: false,
-    category: 'Pro',
-    pdf: false,
-    pro: true,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 10000,
-  },
-  {
-    value: 'scira-anthropic',
-    label: 'Claude 4 Sonnet',
-    description: "Anthropic's most advanced LLM",
-    vision: true,
-    reasoning: false,
-    experimental: false,
-    category: 'Pro',
-    pdf: true,
-    pro: true,
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 8000,
-  },
-  {
-    value: 'scira-mistral-medium',
-    label: 'Mistral Medium',
-    description: "Mistral's medium LLM",
-    vision: true,
-    reasoning: false,
-    experimental: false,
-    category: 'Pro',
-    pdf: true,
-    pro: true,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 8000,
-  },
-  {
-    value: 'scira-qwen-235',
-    label: 'Qwen 3 235B A22B',
-    description: "Qwen's advanced instruct LLM",
-    vision: false,
-    reasoning: true,
-    experimental: false,
-    category: 'Pro',
-    pdf: false,
-    pro: true,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 100000,
-  },
-  {
-    value: 'scira-gpt-oss-20',
-    label: 'OpenAI GPT OSS 20b',
-    description: "OpenAI's advanced small OSS LLM",
-    vision: false,
-    reasoning: true,
-    experimental: false,
-    category: 'Pro',
-    pdf: false,
-    pro: true,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 8000,
+    requiredApiKey: 'GROQ_API_KEY',
   },
   {
     value: 'scira-gpt-oss-120',
@@ -343,10 +221,26 @@ export const models: Model[] = [
     experimental: false,
     category: 'Pro',
     pdf: false,
-    pro: true,
+    pro: false,
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 8000,
+    requiredApiKey: 'GROQ_API_KEY',
+  },
+  {
+    value: 'scira-gpt-oss-20',
+    label: 'OpenAI GPT OSS 20b',
+    description: "OpenAI's efficient OSS LLM",
+    vision: false,
+    reasoning: true,
+    experimental: false,
+    category: 'Pro',
+    pdf: false,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 8000,
+    requiredApiKey: 'GROQ_API_KEY',
   },
   {
     value: 'scira-google',
@@ -357,24 +251,11 @@ export const models: Model[] = [
     experimental: false,
     category: 'Pro',
     pdf: true,
-    pro: true,
+    pro: false,
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 10000,
-  },
-  {
-    value: 'scira-glm',
-    label: 'GLM 4.5',
-    description: "Zhipu AI's advanced base LLM",
-    vision: false,
-    reasoning: true,
-    experimental: false,
-    category: 'Pro',
-    pdf: false,
-    pro: true,
-    requiresAuth: true,
-    freeUnlimited: false,
-    maxOutputTokens: 13000,
+    requiredApiKey: 'GOOGLE_GENERATIVE_AI_API_KEY',
   },
   {
     value: 'scira-google-pro',
@@ -385,13 +266,102 @@ export const models: Model[] = [
     experimental: false,
     category: 'Pro',
     pdf: true,
-    pro: true,
+    pro: false,
     requiresAuth: true,
     freeUnlimited: false,
     maxOutputTokens: 10000,
+    requiredApiKey: 'GOOGLE_GENERATIVE_AI_API_KEY',
   },
-
-  // Experimental Models
+  {
+    value: 'scira-glm',
+    label: 'GLM 4.5',
+    description: "Zhipu AI's advanced base LLM",
+    vision: false,
+    reasoning: true,
+    experimental: false,
+    category: 'Pro',
+    pdf: false,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 13000,
+    requiredApiKey: 'HF_TOKEN',
+  },
+  {
+    value: 'scira-glm-air',
+    label: 'GLM 4.5 Air',
+    description: "Zhipu AI's efficient LLM",
+    vision: false,
+    reasoning: false,
+    experimental: false,
+    category: 'Mini',
+    pdf: false,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 8000,
+    requiredApiKey: 'HF_TOKEN',
+  },
+  {
+    value: 'scira-qwen-235',
+    label: 'Qwen 3 235B',
+    description: "Qwen's largest model",
+    vision: false,
+    reasoning: false,
+    experimental: false,
+    category: 'Pro',
+    pdf: false,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 8000,
+    requiredApiKey: 'HF_TOKEN',
+  },
+  {
+    value: 'scira-kimi-k2',
+    label: 'Kimi K2',
+    description: "Moonshot AI's K2 model",
+    vision: false,
+    reasoning: false,
+    experimental: false,
+    category: 'Mini',
+    pdf: false,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 8000,
+    requiredApiKey: 'GROQ_API_KEY',
+  },
+  {
+    value: 'scira-haiku',
+    label: 'Claude 3.5 Haiku',
+    description: "Anthropic's efficient Claude model",
+    vision: false,
+    reasoning: false,
+    experimental: false,
+    category: 'Mini',
+    pdf: false,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 8000,
+    requiredApiKey: 'ANTHROPIC_API_KEY',
+  },
+  {
+    value: 'scira-mistral-medium',
+    label: 'Mistral Medium',
+    description: "Mistral's medium LLM",
+    vision: true,
+    reasoning: false,
+    experimental: false,
+    category: 'Pro',
+    pdf: false,
+    pro: false,
+    requiresAuth: true,
+    freeUnlimited: false,
+    maxOutputTokens: 8000,
+    requiredApiKey: 'MISTRAL_API_KEY',
+  },
   {
     value: 'scira-llama-4',
     label: 'Llama 4 Maverick',
@@ -405,8 +375,31 @@ export const models: Model[] = [
     requiresAuth: false,
     freeUnlimited: false,
     maxOutputTokens: 8000,
+    requiredApiKey: 'GROQ_API_KEY',
   },
 ];
+
+// Function to check if an API key is available
+function isApiKeyAvailable(apiKeyName: string | undefined): boolean {
+  if (!apiKeyName) return true; // No API key required
+  
+  const apiKey = process.env[apiKeyName];
+  return Boolean(apiKey && apiKey.trim() !== '' && apiKey !== 'placeholder');
+}
+
+// Function to get available models based on API keys
+export function getAvailableModels(): Model[] {
+  return allModels.filter(model => {
+    // If no API key is required, always include
+    if (!model.requiredApiKey) return true;
+    
+    // Check if the required API key is available
+    return isApiKeyAvailable(model.requiredApiKey);
+  });
+}
+
+// Export the filtered models array
+export const models: Model[] = getAvailableModels();
 
 // Helper functions for model access checks
 export function getModelConfig(modelValue: string) {
@@ -466,11 +459,7 @@ export function canUseModel(modelValue: string, user: any, isProUser: boolean): 
     return { canUse: false, reason: 'authentication_required' };
   }
 
-  // Check if model requires Pro subscription
-  if (model.pro && !isProUser) {
-    return { canUse: false, reason: 'pro_subscription_required' };
-  }
-
+  // All models are now free - no pro subscription required
   return { canUse: true };
 }
 
@@ -483,7 +472,8 @@ export function shouldBypassRateLimits(modelValue: string, user: any): boolean {
 // Get acceptable file types for a model
 export function getAcceptedFileTypes(modelValue: string, isProUser: boolean): string {
   const model = getModelConfig(modelValue);
-  if (model?.pdf && isProUser) {
+  // Since all models are free, allow PDF for authenticated users regardless of pro status
+  if (model?.pdf && isProUser !== undefined) {
     return 'image/*,.pdf';
   }
   return 'image/*';
@@ -491,5 +481,5 @@ export function getAcceptedFileTypes(modelValue: string, isProUser: boolean): st
 
 // Legacy arrays for backward compatibility (deprecated - use helper functions instead)
 export const authRequiredModels = models.filter((m) => m.requiresAuth).map((m) => m.value);
-export const proRequiredModels = models.filter((m) => m.pro).map((m) => m.value);
+export const proRequiredModels: string[] = []; // No pro models anymore
 export const freeUnlimitedModels = models.filter((m) => m.freeUnlimited).map((m) => m.value);

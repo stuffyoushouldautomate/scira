@@ -40,6 +40,7 @@ export const serverEnv = createEnv({
     QSTASH_TOKEN: z.string().optional(),
     RESEND_API_KEY: z.string().optional(),
     ALLOWED_ORIGINS: z.string().optional().default('http://localhost:3000'),
+    BULLDOZER_BRAIN_API_KEY: z.string().optional(),
   },
   experimental__runtimeEnv: process.env,
 });

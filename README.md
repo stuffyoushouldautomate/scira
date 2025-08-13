@@ -1,12 +1,25 @@
-# Scira
+# Bulldozer Brain
 
-![Scira](/app/opengraph-image.png)
+![Bulldozer Brain](/app/opengraph-image.png)
 
-A minimalistic AI-powered search engine that helps you find information on the internet.
+A specialized AI-powered research and analysis tool designed specifically for **labor union organizers** in **New Jersey** and **New York**. Bulldozer Brain helps union organizers research, analyze, and gain detailed insights into companies they are tracking.
 
-🔗 **[Try Scira at scira.ai](https://scira.ai)**
+🔗 **[Try Bulldozer Brain](https://bulldozerbrain.ai)**
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/zaidmukaddam/scira)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/zaidmukaddam/bulldozer-brain)
+
+## 🏗️ **Purpose-Built for Labor Union Organizers**
+
+Bulldozer Brain is specifically designed to help union organizers:
+
+- **Research companies** in NJ/NY construction, manufacturing, and service industries
+- **Analyze company structures** and ownership patterns
+- **Track labor violations** and safety incidents
+- **Investigate wage theft** and unfair labor practices
+- **Research contractor relationships** and subcontracting chains
+- **Analyze financial data** and company performance
+- **Track regulatory compliance** and violations
+- **Research executive compensation** and company leadership
 
 ## Powered By
 
@@ -23,25 +36,41 @@ A minimalistic AI-powered search engine that helps you find information on the i
 
 <div align="center" markdown="1">
 
-[![Warp](https://github.com/user-attachments/assets/2bda420d-4211-4900-a37e-e3c7056d799c)](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=scira)<br>
+[![Warp](https://github.com/user-attachments/assets/2bda420d-4211-4900-a37e-e3c7056d799c)](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=bulldozer-brain)<br>
 
-### **[Warp, the intelligent terminal](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=scira)**<br>
+### **[Warp, the intelligent terminal](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=bulldozer-brain)**<br>
 
-[Available for MacOS, Linux, & Windows](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=scira)<br>
-[Visit warp.dev to learn more](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=scira)
+[Available for MacOS, Linux, & Windows](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=bulldozer-brain)<br>
+[Visit warp.dev to learn more](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=bulldozer-brain)
 
 </div>
 
 ## Features
 
-### Core Search & Information
+### Core Research & Analysis
 
-- **AI-powered search**: Get answers to your questions using multiple AI models including xAI's Grok, Anthropic's Claude, Google's Gemini, and OpenAI's GPT models
+- **AI-powered research**: Get detailed answers to your research questions using multiple AI models including OpenAI's latest GPT models
 - **Web search**: Search the web using Exa's API with support for multiple queries, search depths, and topics
 - **URL content retrieval**: Extract and analyze content from any URL using Exa AI with live crawling capabilities
 - **Reddit search**: Search Reddit content with time range filtering using Tavily API
 - **X (Twitter) search**: Search X posts with date ranges and specific handle filtering using xAI Live Search
-- **Extreme search**: Advanced multi-step search capability for complex queries
+- **Extreme search**: Advanced multi-step search capability for complex research queries
+
+### Company & Industry Research
+
+- **Company profiles**: Get detailed information about companies, ownership, and structure
+- **Industry analysis**: Research construction, manufacturing, and service industries in NJ/NY
+- **Regulatory research**: Track OSHA violations, labor law violations, and compliance issues
+- **Financial research**: Analyze company financials, contracts, and performance
+- **Executive research**: Research company leadership, compensation, and backgrounds
+
+### Labor Union Specific Tools
+
+- **Wage analysis**: Research prevailing wages, benefits, and compensation patterns
+- **Safety research**: Track workplace safety incidents and violations
+- **Contract research**: Analyze collective bargaining agreements and labor contracts
+- **Strike research**: Research strike history, outcomes, and strategies
+- **Union density analysis**: Research union membership and organizing campaigns
 
 ### Academic & Research
 
@@ -71,13 +100,13 @@ A minimalistic AI-powered search engine that helps you find information on the i
 
 - **Text translation**: Translate text between languages using AI models
 - **Date & time**: Get current date and time in user's timezone with multiple format options
-- **Memory management**: Add and search personal memories using Mem0 AI
+- **Memory management**: Add and search personal research notes using Mem0 AI
 - **MCP server search**: Search for Model Context Protocol servers using Smithery Registry
 
 ### Search Groups
 
 - **Web**: Search across the entire internet powered by Tavily
-- **Memory**: Your personal memory companion (requires authentication)
+- **Memory**: Your personal research companion (requires authentication)
 - **Analysis**: Code execution, stock charts, and currency conversion
 - **Chat**: Direct conversation with AI models
 - **X**: Search X (Twitter) posts
@@ -86,12 +115,18 @@ A minimalistic AI-powered search engine that helps you find information on the i
 - **YouTube**: Search YouTube videos powered by Exa
 - **Extreme**: Deep research with multiple sources and analysis
 
-## LLM Models Supported
+## AI Models Available
 
+### **Bulldozer Models (OpenAI GPT-5 Series)**
+- **Bulldozer Nano**: Perfect for quick research and basic analysis
+- **Bulldozer Mini**: Great for detailed analysis and research
+- **Bulldozer Pro**: Expert-level research and insights
+- **Bulldozer Max**: Maximum power for complex research and analysis
+
+### **Other Available Models**
 - **xAI**: Grok 3, Grok 3 Mini, Grok 2 Vision
 - **Google**: Gemini 2.5 Flash (Preview), Gemini 2.5 Pro (Preview)
 - **Anthropic**: Claude 4 Sonnet
-- **OpenAI**: GPT-4o, o4-mini, o3 (with reasoning capabilities)
 - **Groq**: Qwen QwQ 32B, Qwen 3 32B, Meta's Llama 4 Maverick
 
 ## Built with
@@ -113,9 +148,9 @@ A minimalistic AI-powered search engine that helps you find information on the i
 
 ### Deploy your own
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzaidmukaddam%2Fscira&env=XAI_API_KEY,OPENAI_API_KEY,ANTHROPIC_API_KEY,GROQ_API_KEY,GOOGLE_GENERATIVE_AI_API_KEY,DAYTONA_API_KEY,DATABASE_URL,BETTER_AUTH_SECRET,GITHUB_CLIENT_ID,GITHUB_CLIENT_SECRET,GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET,TWITTER_CLIENT_ID,TWITTER_CLIENT_SECRET,REDIS_URL,ELEVENLABS_API_KEY,TAVILY_API_KEY,EXA_API_KEY,TMDB_API_KEY,YT_ENDPOINT,FIRECRAWL_API_KEY,OPENWEATHER_API_KEY,GOOGLE_MAPS_API_KEY,MAPBOX_ACCESS_TOKEN,AVIATION_STACK_API_KEY,CRON_SECRET,BLOB_READ_WRITE_TOKEN,MEM0_API_KEY,MEM0_ORG_ID,MEM0_PROJECT_ID,SMITHERY_API_KEY,NEXT_PUBLIC_MAPBOX_TOKEN,NEXT_PUBLIC_POSTHOG_KEY,NEXT_PUBLIC_POSTHOG_HOST,NEXT_PUBLIC_SCIRA_PUBLIC_API_KEY,SCIRA_API_KEY&envDescription=API%20keys%20and%20configuration%20required%20for%20Scira%20to%20function)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzaidmukaddam%2Fbulldozer-brain&env=XAI_API_KEY,OPENAI_API_KEY,ANTHROPIC_API_KEY,GROQ_API_KEY,GOOGLE_GENERATIVE_AI_API_KEY,DAYTONA_API_KEY,DATABASE_URL,BETTER_AUTH_SECRET,GITHUB_CLIENT_ID,GITHUB_CLIENT_SECRET,GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET,TWITTER_CLIENT_ID,TWITTER_CLIENT_SECRET,REDIS_URL,ELEVENLABS_API_KEY,TAVILY_API_KEY,EXA_API_KEY,TMDB_API_KEY,YT_ENDPOINT,FIRECRAWL_API_KEY,OPENWEATHER_API_KEY,GOOGLE_MAPS_API_KEY,MAPBOX_ACCESS_TOKEN,AVIATION_STACK_API_KEY,CRON_SECRET,BLOB_READ_WRITE_TOKEN,MEM0_API_KEY,MEM0_ORG_ID,MEM0_PROJECT_ID,SMITHERY_API_KEY,NEXT_PUBLIC_MAPBOX_TOKEN,NEXT_PUBLIC_POSTHOG_KEY,NEXT_PUBLIC_POSTHOG_HOST,NEXT_PUBLIC_BULLDOZER_BRAIN_PUBLIC_API_KEY,BULLDOZER_BRAIN_API_KEY&envDescription=API%20keys%20and%20configuration%20required%20for%20Bulldozer%20Brain%20to%20function)
 
-## Set Scira as your default search engine
+## Set Bulldozer Brain as your default search engine
 
 1. **Open the Chrome browser settings**:
 
@@ -133,21 +168,21 @@ A minimalistic AI-powered search engine that helps you find information on the i
 
 4. **Set the search engine name**:
 
-   - Enter `Scira` in the "Search engine" field.
+   - Enter `Bulldozer Brain` in the "Search engine" field.
 
 5. **Set the search engine URL**:
 
-   - Enter `https://scira.ai?q=%s` in the "URL with %s in place of query" field.
+   - Enter `https://bulldozerbrain.ai?q=%s` in the "URL with %s in place of query" field.
 
 6. **Set the search engine shortcut**:
 
-   - Enter `sh` in the "Shortcut" field.
+   - Enter `bb` in the "Shortcut" field.
 
 7. **Set Default**:
    - Click on the three dots next to the search engine you just added.
    - Select "Make default" from the dropdown menu.
 
-After completing these steps, you should be able to use Scira as your default search engine in Chrome.
+After completing these steps, you should be able to use Bulldozer Brain as your default search engine in Chrome.
 
 ### Local development
 
@@ -170,11 +205,11 @@ The application can be run using Docker in two ways:
 1. Create a `.env` file based on `.env.example` with your API keys
 2. Build the Docker image:
    ```bash
-   docker build -t scira.app .
+   docker build -t bulldozer-brain.app .
    ```
 3. Run the container:
    ```bash
-   docker run --env-file .env -p 3000:3000 scira.app
+   docker run --env-file .env -p 3000:3000 bulldozer-brain.app
    ```
 
 The application uses a multi-stage build process to minimize the final image size and implements security best practices. The production image runs on Node.js LTS with Alpine Linux for a minimal footprint.
@@ -201,3 +236,9 @@ To run the application locally without Docker:
 # License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+
+## About
+
+Bulldozer Brain is a specialized AI-powered research tool designed specifically for labor union organizers in New Jersey and New York. It helps organizers research companies, analyze labor practices, track violations, and gain detailed insights to support their organizing efforts.
+
+bulldozerbrain.ai

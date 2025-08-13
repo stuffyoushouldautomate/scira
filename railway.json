@@ -41,7 +41,7 @@
       "NEXT_PUBLIC_POSTHOG_KEY": "${NEXT_PUBLIC_POSTHOG_KEY}",
       "NEXT_PUBLIC_POSTHOG_HOST": "${NEXT_PUBLIC_POSTHOG_HOST}",
       "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY": "${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}",
-      "SCIRA_API_KEY": "${SCIRA_API_KEY}",
+      "BULLDOZER_BRAIN_API_KEY": "${BULLDOZER_BRAIN_API_KEY}",
       "AVIATION_STACK_API_KEY": "${AVIATION_STACK_API_KEY}",
       "MAPBOX_ACCESS_TOKEN": "${MAPBOX_ACCESS_TOKEN}",
       "NEXT_PUBLIC_MAPBOX_TOKEN": "${NEXT_PUBLIC_MAPBOX_TOKEN}"
@@ -55,7 +55,7 @@
     "production": {
       "variables": {
         "NODE_ENV": "production",
-        "NEXT_PUBLIC_APP_URL": "https://bv2-production.up.railway.app",
+        "NEXT_PUBLIC_APP_URL": "https://bulldozer-brain-production.up.railway.app",
         "RAILWAY_ENVIRONMENT": "production"
       }
     },
